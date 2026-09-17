@@ -1,13 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
-
-@import 'tailwindcss';
-
+@import "tailwindcss";
 
 @theme {
-    --color-main-color: #00298d;
-    --color-light-gray: #f0f2f5;
+  --color-main-color: #00298d;
+  --color-light-gray: #f0f2f5;
 }
-
-
-
-@layer utilities {}
