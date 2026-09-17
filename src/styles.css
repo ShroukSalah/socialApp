@@ -3,7 +3,11 @@
 @import 'tailwindcss';
 
 
-@theme{
-    --color-main-color:#00298d;
-    --color-light-gray:#f0f2f5;
+@theme {
+    --color-main-color: #00298d;
+    --color-light-gray: #f0f2f5;
 }
+
+
+
+@layer utilities {}
