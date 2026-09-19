@@ -1,6 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-main-color: #00298d;
-  --color-light-gray: #f0f2f5;
+    --color-main-color: #00298d;
+    --color-light-gray: #f0f2f5;
+    --color-heading: #1f2937;
+
+}
+
+@utility container {
+    margin-inline: auto;
+}
+
+@layer components {
+    .main-input-label {
+        @apply block mb-1.5 text-sm font-medium text-heading;
+    }
+
+    .main-input {
+        @apply !bg-white text-sm rounded-md w-full px-3 py-2.5 shadow outline-none placeholder:text-[#000];
+    }
+    .main-btn{
+        @apply bg-main-color w-full text-white p-2 text-center rounded-md font-bold cursor-pointer hover:bg-blue-950 transition-colors duration-500 disabled:bg-gray-500 disabled:cursor-not-allowed
+    }
 }
