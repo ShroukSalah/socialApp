@@ -12,6 +12,19 @@
                         Your Name
                     </label>
                     <input type="text" formControlName="name" id="name" class="main-input" placeholder="Full name" />
+                    @if(registerForm.get('name')?.errors && registerForm.get('name')?.touched){
+                    <div class="flex px-3 mt-4 py-2 mt-0.5 text-base text-red-800 rounded-xs bg-red-100" role="alert">
+                        <div>
+                            <ul class="list-disc list-inside">
+                                @if(registerForm.get('name')?.getError("required") ){
+                                <li>Name input is required</li>
+                                } @else if(registerForm.get('name')?.getError("minlength")) {
+                                <li>Name input should be more than or equal 3 characters</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    }
                 </div>
                 <div class="mb-4">
                     <label for="username" class="main-input-label">
@@ -19,6 +32,19 @@
                     </label>
                     <input type="text" formControlName="username" id="username" class="main-input"
                         placeholder="username (optional)" />
+                    @if(registerForm.get('username')?.errors && registerForm.get('username')?.touched){
+                    <div class="flex px-3 mt-4 py-2 mt-0.5 text-base text-red-800 rounded-xs bg-red-100" role="alert">
+                        <div>
+                            <ul class="list-disc list-inside">
+                                @if(registerForm.get('username')?.getError("required") ){
+                                <li>Name input is required</li>
+                                } @else if(registerForm.get('username')?.getError("minlength")) {
+                                <li>Name input should be more than or equal 3 characters</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    }
                 </div>
                 <div class="mb-4">
                     <label for="email" class="main-input-label">
@@ -56,7 +82,7 @@
                         placeholder="Confirm password" />
                 </div>
                 <div class="mt-8">
-                    <button type="submit"  class="main-btn">
+                    <button [disabled]="registerForm.invalid" type="submit" class="main-btn">
                         Create new account
                     </button>
                 </div>
