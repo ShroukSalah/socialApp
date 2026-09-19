@@ -6,35 +6,31 @@
             </h1>
         </div>
         <div>
-            <form action="">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div class="mb-4">
                     <label for="name" class="main-input-label">
                         Your Name
                     </label>
-                    <input type="text" id="name" class="main-input" placeholder="Full name" />
+                    <input type="text" formControlName="name" id="name" class="main-input" placeholder="Full name" />
                 </div>
                 <div class="mb-4">
                     <label for="username" class="main-input-label">
                         User Name
                     </label>
-                    <input type="text" id="username" class="main-input" placeholder="username (optional)" />
+                    <input type="text" formControlName="username" id="username" class="main-input"
+                        placeholder="username (optional)" />
                 </div>
                 <div class="mb-4">
                     <label for="email" class="main-input-label">
                         Email
                     </label>
-                    <input type="text" id="email" class="main-input" placeholder="Email" />
+                    <input type="email" formControlName="email" id="email" class="main-input" placeholder="Email" />
                 </div>
-                <div class="mb-4">
-                    <label for="email" class="main-input-label">
-                        Email
-                    </label>
-                    <input type="text" id="email" class="main-input" placeholder="Email" />
-                </div>
+
                 <div class="mb-4">
                     <label for="gender" class="main-input-label">Select an
                         gender</label>
-                    <select id="gender" class="main-input">
+                    <select id="gender" formControlName="gender" class="main-input">
                         <option selected hidden disabled>Choose a gender</option>
                         <option value="make">male</option>
                         <option value="female">female</option>
@@ -45,20 +41,22 @@
                     <label for="date" class="main-input-label">
                         Date
                     </label>
-                    <input type="date" id="date" class="main-input" placeholder="" />
+                    <input type="date" formControlName="dateOfBirth" id="date" class="main-input" placeholder="" />
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block mb-2.5 text-sm font-medium text-heading">
                         Password</label>
-                    <input type="password" id="password" class="main-input" placeholder="Password" />
+                    <input type="password" formControlName="password" id="password" class="main-input"
+                        placeholder="Password" />
                 </div>
                 <div class="mb-4">
                     <label for="confirm-password" class="block mb-2.5 text-sm font-medium text-heading">
                         Confirm password</label>
-                    <input type="password" id="confirm-password" class="main-input" placeholder="Confirm password" />
+                    <input type="password" formControlName="rePassword" id="confirm-password" class="main-input"
+                        placeholder="Confirm password" />
                 </div>
                 <div class="mt-8">
-                    <button class="main-btn">
+                    <button type="submit"  class="main-btn">
                         Create new account
                     </button>
                 </div>
