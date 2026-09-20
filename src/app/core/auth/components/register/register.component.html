@@ -100,6 +100,13 @@
                         Create new account
                     </button>
                 </div>
+                @if(errorMessage){
+                <div class="bg-[#ff00004d] text-center mx-auto mt-4">
+                    <span>
+                        {{errorMessage}}
+                    </span>
+                </div>
+                }
             </form>
         </div>
     </div>

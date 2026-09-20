@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from './../../services/auth.service';
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -11,7 +12,7 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validator
 export class RegisterComponent {
 
   private readonly authService = inject(AuthService)
-
+  errorMessage: string = ""
   registerForm: FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.minLength(3)]),
     username: new FormControl(""),
@@ -25,8 +26,13 @@ export class RegisterComponent {
   onSubmit() {
     console.log(this.registerForm.value)
     this.authService.sendRegisterData(this.registerForm.value).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res)
+        this.registerForm.reset()
+      },
+      error: (err: HttpErrorResponse) => {
+        console.log(err.error.message)
+        this.errorMessage = err.error.message
       }
     })
   }
