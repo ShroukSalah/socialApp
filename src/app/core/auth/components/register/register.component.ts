@@ -33,19 +33,27 @@ export class RegisterComponent {
 
   onSubmit() {
     this.isloading = true
-    this.authService.sendRegisterData(this.registerForm.value).subscribe({
-      next: (res) => {
-        console.log(res)
-        this.registerForm.reset()
-        this.isloading = false
-        this.router.navigate(['/login'])
-      },
-      error: (err: HttpErrorResponse) => {
-        console.log(err.error.message)
-        this.isloading = false
-        this.errorMessage = err.error.message
-      }
-    })
+    if (this.registerForm.valid) {
+      this.authService.sendRegisterData(this.registerForm.value).subscribe({
+
+        next: (res) => {
+          console.log(res)
+          this.registerForm.reset()
+          this.isloading = false
+          this.router.navigate(['/login'])
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err.error.message)
+          this.isloading = false
+          this.errorMessage = err.error.message
+        }
+      })
+    }
+    else {
+      this.registerForm.markAllAsTouched()
+    }
+
+
   }
 
 
