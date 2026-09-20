@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from './../../services/auth.service';
 import { Component, inject } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,20 +14,21 @@ export class RegisterComponent {
 
   private readonly authService = inject(AuthService)
   private readonly router = inject(Router)
+  private readonly fb = inject(FormBuilder)
 
 
   errorMessage: string = ""
   isloading: boolean = false
 
 
-  registerForm: FormGroup = new FormGroup({
-    name: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    username: new FormControl(""),
-    email: new FormControl("", [Validators.required, Validators.email]),
-    dateOfBirth: new FormControl("", [Validators.required,]),
-    gender: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    password: new FormControl("", [Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)]),
-    rePassword: new FormControl("", [Validators.required, Validators.minLength(5)])
+  registerForm: FormGroup = this.fb.group({
+    name: ["", [Validators.required, Validators.minLength(3)]],
+    username: [""],
+    email: ["", [Validators.required, Validators.email]],
+    dateOfBirth: ["", [Validators.required,]],
+    gender: ["", [Validators.required, Validators.minLength(3)]],
+    password: ["", [Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)]],
+    rePassword: ["", [Validators.required, Validators.minLength(5)]],
   }, { validators: [this.handleConfirmPassword] })
 
   onSubmit() {
@@ -47,7 +48,7 @@ export class RegisterComponent {
     })
   }
 
-  
+
   handleConfirmPassword(group: AbstractControl) {
     const password = group.get("password")?.value
     const rePassword = group.get("rePassword")?.value
