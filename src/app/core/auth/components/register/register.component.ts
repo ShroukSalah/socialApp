@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -16,11 +16,22 @@ export class RegisterComponent {
     gender: new FormControl("", [Validators.required, Validators.minLength(3)]),
     password: new FormControl("", [Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)]),
     rePassword: new FormControl("", [Validators.required, Validators.minLength(5)])
-  })
+  }, { validators: [this.handleConfirmPassword] })
   // check Password = rePassword
 
   onSubmit() {
-     console.log(this.registerForm.value)
+    console.log(this.registerForm.value)
+  }
+  handleConfirmPassword(group: AbstractControl) {
+    const password = group.get("password")?.value
+    const rePassword = group.get("rePassword")?.value
+    if (password !== rePassword && rePassword !== "") {
+      group.get('rePassword')?.setErrors({ mismatch: true })
+      return { mismatch: true }
+    }
+    else{
+      return null
+    }
   }
 }
 

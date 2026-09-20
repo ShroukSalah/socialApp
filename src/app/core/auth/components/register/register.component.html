@@ -76,10 +76,24 @@
                         placeholder="Password" />
                 </div>
                 <div class="mb-4">
-                    <label for="confirm-password" class="block mb-2.5 text-sm font-medium text-heading">
+                    <label for="rePassword" class="block mb-2.5 text-sm font-medium text-heading">
                         Confirm password</label>
-                    <input type="password" formControlName="rePassword" id="confirm-password" class="main-input"
+                    <input type="password" formControlName="rePassword" id="rePassword" class="main-input"
                         placeholder="Confirm password" />
+                    @if(registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched){
+                    <div class="flex px-3 mt-4 py-2 mt-0.5 text-base text-red-800 rounded-xs bg-red-100" role="alert">
+                        <div>
+                            <ul class="list-disc list-inside">
+                                @if(registerForm.get('rePassword')?.getError("required") ){
+                                <li>COnfirm Password is required</li>
+                                }
+                                @else if(registerForm.get('rePassword')?.getError("mismatch")) {
+                                <li>should be match with Password</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    }
                 </div>
                 <div class="mt-8">
                     <button [disabled]="registerForm.invalid" type="submit" class="main-btn">
