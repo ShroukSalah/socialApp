@@ -13,14 +13,21 @@
                     </label>
                     <input type="email" formControlName="email" id="email" class="main-input" placeholder="Email" />
                 </div>
-               
-                <div class="mb-4">
+
+                <div class="mb-4 relative">
                     <label for="password" class="block mb-2.5 text-sm font-medium text-heading">
                         Password</label>
-                    <input type="password" formControlName="password" id="password" class="main-input"
-                        placeholder="Password" />
+                    <input [type]=" flag === true ? 'password' : 'text'" formControlName="password" id="password"
+                        class="main-input" placeholder="Password" />
+                    <span class="absolute bottom-[10px] inset-e-[10px] cursor-pointer" (click)="showPass()">
+                        <i class="fas " [class]="{
+                            'fa-eye': flag === true,
+                            'fa-eye-slash': flag === false,
+                        }"></i>
+
+                    </span>
                 </div>
-                
+
                 <div class="mt-8">
                     <button [disabled]="loginForm.invalid" type="submit" class="main-btn">
                         Login

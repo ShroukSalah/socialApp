@@ -18,15 +18,15 @@ export class LoginComponent {
 
   errorMessage: string = ""
   isloading: boolean = false
-
+  flag: boolean = true
 
   // loginForm: FormGroup = new FormGroup({
   //   email: new FormControl("", [Validators.required, Validators.email]),
   //   password: new FormControl("", [Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)]),
   // })
   loginForm: FormGroup = this.fb.group({
-    email:["", [Validators.required, Validators.email]],
-    password:  ["", [Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)]],
+    email: ["", [Validators.required, Validators.email]],
+    password: ["", [Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)]],
   })
 
 
@@ -47,6 +47,7 @@ export class LoginComponent {
     })
   }
 
-
-
+  showPass():void {
+     this.flag = !this.flag
+  }
 }
