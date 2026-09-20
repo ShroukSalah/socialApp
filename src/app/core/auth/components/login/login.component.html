@@ -1,1 +1,43 @@
-<p>login works!</p>
+<section class="bg-[#eeeeee78] p-3 shadow rounded-md w-1/2 mx-auto">
+    <div class="container xl:w-[95%]">
+        <div>
+            <h1 class="title text-3xl mb-5 text-center">
+                Login Now
+            </h1>
+        </div>
+        <div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mb-4">
+                    <label for="email" class="main-input-label">
+                        Email
+                    </label>
+                    <input type="email" formControlName="email" id="email" class="main-input" placeholder="Email" />
+                </div>
+               
+                <div class="mb-4">
+                    <label for="password" class="block mb-2.5 text-sm font-medium text-heading">
+                        Password</label>
+                    <input type="password" formControlName="password" id="password" class="main-input"
+                        placeholder="Password" />
+                </div>
+                
+                <div class="mt-8">
+                    <button [disabled]="loginForm.invalid" type="submit" class="main-btn">
+                        Login
+                        @if(isloading){
+                        <i class="fas fa-spinner animate-spin"></i>
+                        }
+                    </button>
+                </div>
+                @if(errorMessage){
+                <div class="bg-[#ff00004d] text-center mx-auto mt-4">
+                    <span>
+                        {{errorMessage}}
+                    </span>
+                </div>
+                }
+            </form>
+        </div>
+    </div>
+
+</section>

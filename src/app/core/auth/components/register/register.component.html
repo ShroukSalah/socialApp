@@ -98,6 +98,9 @@
                 <div class="mt-8">
                     <button [disabled]="registerForm.invalid" type="submit" class="main-btn">
                         Create new account
+                        @if(isloading){
+                        <i class="fas fa-spinner animate-spin"></i>
+                        }
                     </button>
                 </div>
                 @if(errorMessage){

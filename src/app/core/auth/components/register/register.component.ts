@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from './../../services/auth.service';
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,13 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validator
 export class RegisterComponent {
 
   private readonly authService = inject(AuthService)
+  private readonly router = inject(Router)
+
+
   errorMessage: string = ""
+  isloading: boolean = false
+
+
   registerForm: FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.minLength(3)]),
     username: new FormControl(""),
@@ -24,18 +31,23 @@ export class RegisterComponent {
   }, { validators: [this.handleConfirmPassword] })
 
   onSubmit() {
-    console.log(this.registerForm.value)
+    this.isloading = true
     this.authService.sendRegisterData(this.registerForm.value).subscribe({
       next: (res) => {
         console.log(res)
         this.registerForm.reset()
+        this.isloading = false
+        this.router.navigate(['/login'])
       },
       error: (err: HttpErrorResponse) => {
         console.log(err.error.message)
+        this.isloading = false
         this.errorMessage = err.error.message
       }
     })
   }
+
+  
   handleConfirmPassword(group: AbstractControl) {
     const password = group.get("password")?.value
     const rePassword = group.get("rePassword")?.value
