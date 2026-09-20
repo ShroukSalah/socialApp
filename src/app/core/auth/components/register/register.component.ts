@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AuthService } from './../../services/auth.service';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +9,9 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validator
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
+
+  private readonly authService = inject(AuthService)
+
   registerForm: FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.minLength(3)]),
     username: new FormControl(""),
@@ -17,10 +21,14 @@ export class RegisterComponent {
     password: new FormControl("", [Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)]),
     rePassword: new FormControl("", [Validators.required, Validators.minLength(5)])
   }, { validators: [this.handleConfirmPassword] })
-  // check Password = rePassword
 
   onSubmit() {
     console.log(this.registerForm.value)
+    this.authService.sendRegisterData(this.registerForm.value).subscribe({
+      next:(res)=>{
+        console.log(res)
+      }
+    })
   }
   handleConfirmPassword(group: AbstractControl) {
     const password = group.get("password")?.value
@@ -29,7 +37,7 @@ export class RegisterComponent {
       group.get('rePassword')?.setErrors({ mismatch: true })
       return { mismatch: true }
     }
-    else{
+    else {
       return null
     }
   }
