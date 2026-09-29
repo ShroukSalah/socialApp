@@ -8,6 +8,8 @@ import { ProfileComponent } from './features/profile/profile.component';
 import { NotFoundComponent } from './features/not-found/not-found.component';
 import { NotificationsComponent } from './features/notifications/notifications.component';
 import { ChangePasswordComponent } from './features/change-password/change-password.component';
+import { authGuard } from './core/guards/auth-guard';
+import { guestGuard } from './core/guards/guest-guard';
 
 export const routes: Routes = [
     {
@@ -17,6 +19,7 @@ export const routes: Routes = [
     }, {
         path: '',
         component: AuthLayoutComponent,
+        canActivate: [guestGuard],
         children: [{
             path: 'login',
             component: LoginComponent,
@@ -33,6 +36,8 @@ export const routes: Routes = [
     {
         path: '',
         component: MainLayoutComponent,
+        canActivate: [authGuard],
+
         children: [{
             path: 'feed',
             component: FeedComponent,

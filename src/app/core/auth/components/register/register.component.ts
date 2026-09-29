@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from './../../services/auth.service';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,26 +10,28 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
   private readonly authService = inject(AuthService)
   private readonly router = inject(Router)
   private readonly fb = inject(FormBuilder)
-
+  registerForm!: FormGroup
 
   errorMessage: string = ""
   isloading: boolean = false
 
+  ngOnInit(): void {
+    this.registerForm = this.fb.group({
+      name: ["", [Validators.required, Validators.minLength(3)]],
+      username: [""],
+      email: ["", [Validators.required, Validators.email]],
+      dateOfBirth: ["", [Validators.required,]],
+      gender: ["", [Validators.required, Validators.minLength(3)]],
+      password: ["", [Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)]],
+      rePassword: ["", [Validators.required, Validators.minLength(5)]],
+    }, { validators: [this.handleConfirmPassword] })
 
-  registerForm: FormGroup = this.fb.group({
-    name: ["", [Validators.required, Validators.minLength(3)]],
-    username: [""],
-    email: ["", [Validators.required, Validators.email]],
-    dateOfBirth: ["", [Validators.required,]],
-    gender: ["", [Validators.required, Validators.minLength(3)]],
-    password: ["", [Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)]],
-    rePassword: ["", [Validators.required, Validators.minLength(5)]],
-  }, { validators: [this.handleConfirmPassword] })
+  }
 
   onSubmit() {
     this.isloading = true
