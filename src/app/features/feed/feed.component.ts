@@ -4,6 +4,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CreatePostComponent } from '../../shared/components/create-post/create-post.component';
 import { SinglePostComponent } from '../../shared/components/single-post/single-post.component';
+import { Post } from '../../core/models/posts.interface';
 
 @Component({
   selector: 'app-feed',
@@ -13,14 +14,17 @@ import { SinglePostComponent } from '../../shared/components/single-post/single-
 })
 export class FeedComponent implements OnInit {
   private readonly postsService = inject(PostsService)
+
   sub$: Subscription = new Subscription
-  posts: any
+  postsList!: Post[]  
+
+
   ngOnInit(): void {
 
     this.sub$ = this.postsService.getAllPosts().subscribe({
-      next: (posts) => {
-        console.log(posts)
-
+      next: (res) => {
+        console.log(res.data.posts)
+        this.postsList = res.data.posts
       },
       error: (err: HttpErrorResponse) => {
         console.log(err.error.message)
@@ -29,5 +33,6 @@ export class FeedComponent implements OnInit {
     })
 
   }
+
 
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Post } from '../../../core/models/posts.interface';
 
 @Component({
   selector: 'app-single-post',
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './single-post.component.html',
   styleUrl: './single-post.component.css',
 })
-export class SinglePostComponent {}
+export class SinglePostComponent {
+  @Input({ required: true }) postData: Post = {} as Post
+
+}

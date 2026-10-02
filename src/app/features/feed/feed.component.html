@@ -2,7 +2,12 @@
     <div class="col-span-2 col-start-2">
 
         <app-create-post />
-        <app-single-post />
+        @for (post of postsList; track post.id) {
+        <div>
+            <app-single-post [postData]="post"/>
+        </div>
+        }
+
 
     </div>
 </div>
