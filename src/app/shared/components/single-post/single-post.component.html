@@ -20,8 +20,34 @@
         }
     </div>
     <div>
-        <div>
-            
+        <div class="flex gap-[25px] mb-4">
+            <div class="flex items-center gap-2">
+                <i class="far fa-heart"></i>
+                <h6>
+                    Likes
+                </h6>
+                <h6 class="text-[#5E5A75]">
+                    {{postData.likes}}
+                </h6>
+            </div>
+             <div class="flex items-center gap-2">
+                <i class="far fa-comment-alt"></i>
+                <h6>
+                    Comments
+                </h6>
+                <h6 class="text-[#5E5A75]">
+                    {{postData.commentsCount}}
+                </h6>
+            </div>
+             <div class="flex items-center gap-2">
+                <i class="fas fa-share"></i>
+                <h6>
+                   Share
+                </h6>
+                <h6 class="text-[#5E5A75]">
+                    {{postData.sharesCount}}
+                </h6>
+            </div>
         </div>
         <app-comments [postId]="postData.id" />
         <app-create-comment [postId]="postData.id"></app-create-comment>
