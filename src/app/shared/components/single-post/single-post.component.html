@@ -1,9 +1,16 @@
-<section class="bg-gray-50 p-5 rounded-2xl shadow my-3">
+<section class="bg-white  p-5 rounded-2xl shadow my-3">
     <div>
-        <img [src]="postData.image" alt="">
+        <div class="flex gap-3 mb-4">
+            <img [src]="postData.user.photo" class="w-[30px] h-[30px] shadow rounded-full" [alt]="postData.user.username">
+            <h5 class="font-semibold">
+                {{postData.user.username}}
+            </h5>
+        </div>
         <p>
             {{postData.body}}
         </p>
+        <img [src]="postData.image" class="rounded-xl mt-4 shadow  " alt="">
+
     </div>
 
 </section>
