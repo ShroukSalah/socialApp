@@ -1,21 +1,29 @@
-<section class="bg-white  p-5 rounded-2xl shadow my-3">
-    <div class="mb-3">
+<section class="bg-white p-[20px] rounded-[20px] shadow my-3">
+    <div class="mb-3 border-b pb-4 border-b-[#E6E3F2]">
         <div class="flex gap-3 mb-4">
-            <img [src]="postData.user.photo" class="w-[30px] h-[30px] shadow rounded-full"
+            <img [src]="postData.user.photo" class="w-[44px] h-[44px] shadow rounded-full"
                 [alt]="postData.user.username">
-            <h5 class="font-semibold">
-                {{postData.user.username}}
-            </h5>
+            <div>
+                <h5 class="font-semibold text-[20px]">
+                    {{postData.user.username}}
+                </h5>
+                <span class="text-[10px] text-[#999999] font-semibold">
+                    {{postData.createdAt}}
+                </span>
+            </div>
         </div>
         <p>
             {{postData.body}}
         </p>
         @if(postData.image){
-        <img [src]="postData.image" class="rounded-xl mt-4 shadow h-[200px] " alt="">
-}
+        <img [src]="postData.image" class="rounded-xl mt-4 shadow h-[340px] w-full object-cover" alt="">
+        }
     </div>
     <div>
-        <app-comments [postId]="postData.id"/>
+        <div>
+            
+        </div>
+        <app-comments [postId]="postData.id" />
         <app-create-comment [postId]="postData.id"></app-create-comment>
     </div>
 </section>
