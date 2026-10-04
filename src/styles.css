@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
+* {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
 @theme {
     --color-main-color: #00298d;
     --color-light-gray: #f0f2f5;
     --color-heading: #1f2937;
-    --color-primary: #fff000
+    --color-primary: #5B3DF5
 }
 
 @utility container {

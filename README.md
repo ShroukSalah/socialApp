@@ -1,5 +1,5 @@
-# 🌐 SocialApp
-
+Lamma: it comes from the Egyptian Arabic word for a get-together, when friends and family gather. That is what a social app is for. It's also short, easy to say and easy to spell in English letters.
+ 
 A modern social media web application built with **Angular**, where users can connect, share posts, and interact with each other.
 
 <!-- Replace the line above with 1-2 sentences describing exactly what your app does. -->
