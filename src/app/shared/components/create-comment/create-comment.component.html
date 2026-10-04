@@ -1,0 +1,11 @@
+<div>
+    <form (submit)="onSubmitForm($event)">
+        <textarea [formControl]="newCommentControl" id="comment" rows="4"
+            class="bg-[#eeeeee69] text-heading text-sm rounded-md block w-full p-3.5 shadow-xs placeholder:text-[#949090]"
+            placeholder="Write your Comment..."></textarea>
+        <button data-modal-hide="default-modal" type="submit"
+            class="text-black bg-primary  mt-3  shadow-xs font-medium leading-5 rounded-md text-sm px-4 py-2.5 focus:outline-none">
+            post new comment
+        </button>
+    </form>
+</div>
