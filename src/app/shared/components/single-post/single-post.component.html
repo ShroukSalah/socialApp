@@ -27,10 +27,10 @@
                     Likes
                 </h6>
                 <h6 class="text-[#5E5A75]">
-                    {{postData.likes}}
+                    {{postData.likesCount}}
                 </h6>
             </div>
-             <div class="flex items-center gap-2">
+             <div #commentsBtn class="flex items-center gap-2 cursor-pointer">
                 <i class="far fa-comment-alt"></i>
                 <h6>
                     Comments
@@ -49,7 +49,9 @@
                 </h6>
             </div>
         </div>
+        @defer(on interaction(commentsBtn)){
         <app-comments [postId]="postData.id" />
+        }
         <app-create-comment [postId]="postData.id"></app-create-comment>
     </div>
 </section>

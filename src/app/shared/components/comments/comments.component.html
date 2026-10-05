@@ -1,11 +1,19 @@
 @for(comment of commentsList(); track comment._id ){
-<div class="border border-solid border-[#eee] rounded-xl p-3 mb-3">
-     <div class="flex gap-3 mb-4">
-          <p class="font-semibold mb-0">
+
+<div class="flex my-4 gap-5">
+     <div>
+          <img [src]="comment.commentCreator.photo" class="shadow w-[40px] h-[40px] rounded-full" [alt]="comment.commentCreator.photo">
+     </div>
+     <div class=" mb-4 p-4 rounded-[20px] bg-[#F6F5FB]">
+          <h5 class="font-bold">
+                {{comment.commentCreator.username}}
+          </h5>
+          <p class="text-[15px] mb-0">
                {{comment.content}}
           </p>
      </div>
 
 
 </div>
+
 }
