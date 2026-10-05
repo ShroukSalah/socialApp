@@ -1,9 +1,8 @@
-<section class="bg-[#eeeeee78] p-3 shadow rounded-md w-1/2 mx-auto">
+<section class="bg-white p-[40px] shadow rounded-[25px]   mx-auto">
     <div class="container xl:w-[95%]">
         <div>
-            <h1 class="title text-3xl mb-5 text-center">
-                Login Now
-            </h1>
+            <h2 class="text-[28px] font-bold">Welcome back</h2>
+            <p class="text-[15px]  text-[#5E5A75] mb-5">Log in to continue to your feed.</p>
         </div>
         <div>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -11,14 +10,17 @@
                     <label for="email" class="main-input-label">
                         Email
                     </label>
-                    <input type="email" formControlName="email" id="email" class="main-input" placeholder="Email" />
+                    <input type="email" formControlName="email" id="email"
+                        class="main-input h-[52px] border-[2px] border-solid border-[#DAD6EC] rounded-[15px] shadow-none"
+                        placeholder="Email" />
                 </div>
 
                 <div class="mb-4 relative">
                     <label for="password" class="block mb-2.5 text-sm font-medium text-heading">
                         Password</label>
                     <input [type]=" flag === true ? 'password' : 'text'" formControlName="password" id="password"
-                        class="main-input" placeholder="Password" />
+                        class="main-input h-[52px] border-[2px] border-solid border-[#DAD6EC] rounded-[15px] shadow-none"
+                        placeholder="Password" />
                     <span class="absolute bottom-[10px] inset-e-[10px] cursor-pointer" (click)="showPass()">
                         <i class="fas " [class]="{
                             'fa-eye': flag === true,
@@ -29,7 +31,8 @@
                 </div>
 
                 <div class="mt-8">
-                    <button [disabled]="loginForm.invalid" type="submit" class="main-btn">
+                    <button [disabled]="loginForm.invalid" type="submit"
+                        class="main-btn h-[52px] rounded-[15px] bg-[#5b3df5]">
                         Login
                         @if(isloading){
                         <i class="fas fa-spinner animate-spin"></i>
@@ -43,6 +46,12 @@
                     </span>
                 </div>
                 }
+
+                <div class="mt-5">
+                    <p class="text-[14px] text-center text-[#5E5A75]">New here?
+                        <a routerLink="/register" class="text-[#5b3df5] font-bold">Create an account</a>
+                    </p>
+                </div>
             </form>
         </div>
     </div>
