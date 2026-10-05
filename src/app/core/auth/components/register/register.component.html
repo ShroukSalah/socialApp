@@ -1,5 +1,5 @@
-<section class="bg-[#eeeeee78] p-3 shadow rounded-md w-1/2 mx-auto">
-    <div class="container xl:w-[95%]">
+<section class="bg-white p-[40px] shadow rounded-[25px]   mx-auto">
+    <div class="container">
         <div>
             <h1 class="title text-3xl mb-5 text-center">
                 Register Now
@@ -70,13 +70,13 @@
                     <input type="date" formControlName="dateOfBirth" id="date" class="main-input" placeholder="" />
                 </div>
                 <div class="mb-4">
-                    <label for="password" class="block mb-2.5 text-sm font-medium text-heading">
+                    <label for="password" class="main-input-label">
                         Password</label>
                     <input type="password" formControlName="password" id="password" class="main-input"
                         placeholder="Password" />
                 </div>
                 <div class="mb-4">
-                    <label for="rePassword" class="block mb-2.5 text-sm font-medium text-heading">
+                    <label for="rePassword" class="main-input-label">
                         Confirm password</label>
                     <input type="password" formControlName="rePassword" id="rePassword" class="main-input"
                         placeholder="Confirm password" />
@@ -96,7 +96,7 @@
                     }
                 </div>
                 <div class="mt-8">
-                    <button   type="submit" class="main-btn">
+                    <button type="submit" class="main-btn h-[52px] rounded-[15px] bg-[#5b3df5]">
                         Create new account
                         @if(isloading){
                         <i class="fas fa-spinner animate-spin"></i>

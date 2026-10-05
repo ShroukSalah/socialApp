@@ -1,5 +1,5 @@
 <section class="bg-white p-[40px] shadow rounded-[25px]   mx-auto">
-    <div class="container xl:w-[95%]">
+    <div class="container ">
         <div>
             <h2 class="text-[28px] font-bold">Welcome back</h2>
             <p class="text-[15px]  text-[#5E5A75] mb-5">Log in to continue to your feed.</p>
@@ -32,7 +32,7 @@
 
                 <div class="mt-8">
                     <button [disabled]="loginForm.invalid" type="submit"
-                        class="main-btn h-[52px] rounded-[15px] bg-[#5b3df5]">
+                        class="main-btn">
                         Login
                         @if(isloading){
                         <i class="fas fa-spinner animate-spin"></i>
