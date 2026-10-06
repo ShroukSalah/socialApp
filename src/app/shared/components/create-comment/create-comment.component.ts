@@ -23,7 +23,7 @@ export class CreateCommentComponent {
  
     this.commentsService.createComment(this.postId, formData).subscribe({
       next: (res) => {
-        console.log(res.data)
+         this.newCommentControl.reset()
        },
     })
   }
