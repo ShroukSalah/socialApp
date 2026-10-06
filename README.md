@@ -8,7 +8,7 @@ A modern social media web application built with **Angular**, where users can co
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-🔗 **[Live Demo](https://your-demo-link.vercel.app)** <!-- Replace with your deployed link -->
+🔗 **[Live Demo](https://social-app-weld-ten.vercel.app/)** <!-- Replace with your deployed link -->
 
 ---
 
