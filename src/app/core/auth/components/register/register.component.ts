@@ -2,11 +2,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from './../../services/auth.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule ,RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })

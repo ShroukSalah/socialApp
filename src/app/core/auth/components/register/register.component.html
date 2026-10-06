@@ -1,9 +1,9 @@
 <section class="bg-white p-[40px] shadow rounded-[25px]   mx-auto">
     <div class="container">
+
         <div>
-            <h1 class="title text-3xl mb-5 text-center">
-                Register Now
-            </h1>
+            <h2 class="text-[28px] font-bold">Create your account</h2>
+            <p class="text-[15px]  text-[#5E5A75] mb-5">It's free and takes less than a minute.</p>
         </div>
         <div>
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -111,6 +111,12 @@
                 </div>
                 }
             </form>
+            <div class="mt-5">
+                <p class="text-[14px] text-center text-[#5E5A75]">Already have an account? 
+                    <a routerLink="/login" class="text-[#5b3df5] font-bold cursor-pointer"> Log in</a>
+                </p>
+            </div>
+           
         </div>
     </div>
 
