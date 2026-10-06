@@ -34,12 +34,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    
+
     this.isloading = true
     if (this.registerForm.valid) {
       this.authService.sendRegisterData(this.registerForm.value).subscribe({
         next: (res) => {
-          console.log(res)
           this.registerForm.reset()
           this.isloading = false
           this.router.navigate(['/login'])
