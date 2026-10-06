@@ -10,18 +10,7 @@ A modern social media web application built with **Angular**, where users can re
 
 🔗 **[Live Demo](https://social-app-weld-ten.vercel.app/)**
 
----
-
-## 📸 Screenshots
-
-| Home Feed | Profile |
-| :---: | :---: |
-| ![Home](docs/screenshots/home.png) | ![Profile](docs/screenshots/profile.png) |
-
-| Login | Mobile View |
-| :---: | :---: |
-| ![Login](docs/screenshots/login.png) | ![Mobile](docs/screenshots/mobile.png) |
-
+ 
 ---
 
 ## ✨ Features
