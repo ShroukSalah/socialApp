@@ -1,14 +1,14 @@
-Lamma: it comes from the Egyptian Arabic word for a get-together, when friends and family gather. That is what a social app is for. It's also short, easy to say and easy to spell in English letters.
- 
-A modern social media web application built with **Angular**, where users can connect, share posts, and interact with each other.
+# Lamma 🤝
 
-<!-- Replace the line above with 1-2 sentences describing exactly what your app does. -->
+> **Lamma** (لمّة) comes from the Egyptian Arabic word for a get-together, when friends and family gather. That is what a social app is for. It's also short, easy to say, and easy to spell in English letters.
+
+A modern social media web application built with **Angular**, where users can register, share posts, and interact with each other through likes and comments.
 
 [![Angular](https://img.shields.io/badge/Angular-22-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-🔗 **[Live Demo](https://social-app-weld-ten.vercel.app/)** <!-- Replace with your deployed link -->
+🔗 **[Live Demo](https://social-app-weld-ten.vercel.app/)**
 
 ---
 
@@ -22,8 +22,6 @@ A modern social media web application built with **Angular**, where users can co
 | :---: | :---: |
 | ![Login](docs/screenshots/login.png) | ![Mobile](docs/screenshots/mobile.png) |
 
-<!-- Create a docs/screenshots folder, add your images, and keep the file names above (or update them). -->
-
 ---
 
 ## ✨ Features
@@ -34,8 +32,6 @@ A modern social media web application built with **Angular**, where users can co
 - 👤 User profiles
 - 📱 Fully responsive design
 
-<!-- Keep only the features your app actually has, and add any others. -->
-
 ---
 
 ## 🛠 Tech Stack
@@ -43,12 +39,11 @@ A modern social media web application built with **Angular**, where users can co
 | Category | Technology |
 | --- | --- |
 | Framework | [Angular](https://angular.dev/) |
-| Language | TypeScript |
+| Language | [TypeScript](https://www.typescriptlang.org/) |
 | Styling | CSS / PostCSS |
+| Backend API | [Route Posts API](https://route-posts.routemisr.com) |
 | Testing | [Vitest](https://vitest.dev/) |
 | Code Quality | Prettier, EditorConfig |
-
-<!-- Add anything else you use: Tailwind CSS, Angular Material, RxJS, Firebase, REST API, etc. -->
 
 ---
 
@@ -56,9 +51,10 @@ A modern social media web application built with **Angular**, where users can co
 
 ```
 socialApp/
-├── public/          # Static assets
+├── public/              # Static assets
 ├── src/
-│   ├── app/         # Components, services, routes
+│   ├── app/             # Components, services, routes
+│   ├── environments/    # Environment configuration
 │   ├── index.html
 │   ├── main.ts
 │   └── styles.css
@@ -73,7 +69,7 @@ socialApp/
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [Node.js](https://nodejs.org/) (a version supported by your Angular release; the LTS version is recommended)
 - [Angular CLI](https://angular.dev/tools/cli)
 
 ```bash
@@ -125,14 +121,12 @@ The app reloads automatically whenever you change a source file.
 
 ## ⚙️ Environment Variables
 
-<!-- Delete this section if your app doesn't use an API. -->
-
-If the app connects to a backend API, set the base URL in `src/environments/environment.ts`:
+The app connects to a backend API. Set the base URL in `src/environments/environment.ts`:
 
 ```ts
 export const environment = {
   production: false,
-  apiUrl: 'https://route-posts.routemisr.com'
+  apiUrl: 'https://route-posts.routemisr.com',
 };
 ```
 
@@ -140,13 +134,17 @@ export const environment = {
 
 ## 🌍 Deployment
 
-<!-- The app can be deployed for free on platforms like [Vercel](https://vercel.com/), [Netlify](https://www.netlify.com/), or [Firebase Hosting](https://firebase.google.com/docs/hosting). -->
+Build the app for production:
 
 ```bash
 ng build
 ```
 
-The production files will be generated in the `dist/` folder.
+The production files are generated in the `dist/` folder.
+
+The live demo is hosted on [Vercel](https://vercel.com/). The app can also be deployed for free on [Netlify](https://www.netlify.com/) or [Firebase Hosting](https://firebase.google.com/docs/hosting).
+
+> **Note:** Because this is a single-page app, configure your host to redirect all routes to `index.html`. Otherwise, refreshing on a page like `/profile` will return a 404.
 
 ---
 
@@ -160,18 +158,6 @@ The production files will be generated in the `dist/` folder.
  
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome!
-
-<!-- 1. Fork the project
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m "feat: add amazing feature"`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request -->
-
----
-
 ## 📄 License
 
 Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
@@ -183,6 +169,6 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information
 **Shrouk Salah**
 
 - GitHub: [@ShroukSalah](https://github.com/ShroukSalah)
-- LinkedIn: [your-linkedin](https://www.linkedin.com/in/shrouk-salah-b3a955106/) <!-- Replace with your link -->
+- LinkedIn: [Shrouk Salah](https://www.linkedin.com/in/shrouk-salah-b3a955106/)
 
 ⭐ If you like this project, give it a star!
