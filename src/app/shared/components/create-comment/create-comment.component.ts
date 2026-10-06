@@ -20,8 +20,7 @@ export class CreateCommentComponent {
 
     formData.append("content", this.newCommentControl.value)
 
-    console.log("vdfgfd")
-
+ 
     this.commentsService.createComment(this.postId, formData).subscribe({
       next: (res) => {
         console.log(res.data)
