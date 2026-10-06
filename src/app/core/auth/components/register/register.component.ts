@@ -6,7 +6,7 @@ import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule ,RouterLink],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -34,10 +34,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    
     this.isloading = true
     if (this.registerForm.valid) {
       this.authService.sendRegisterData(this.registerForm.value).subscribe({
-
         next: (res) => {
           console.log(res)
           this.registerForm.reset()

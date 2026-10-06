@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.sub$.unsubscribe()
-    this.isloading = true
+     this.isloading = true
     this.sub$ = this.authService.sendLoginData(this.loginForm.value).subscribe({
       next: (res) => {
         console.log(res)
