@@ -40,7 +40,7 @@ export class CreatePostComponent implements AfterViewInit {
     // Call Api
     this.postsService.createPosts(formData).subscribe({
       next: (res) => {
-        console.log(res.data)
+        // console.log(res.data)
       }
     })
 

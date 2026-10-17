@@ -4,7 +4,7 @@
         <app-create-post />
         @for (post of postsList(); track post.id) {
         <div>
-            <app-single-post [postData]="post"/>
+            <app-single-post [postData]="post" (postDeleted)="onPostDeleted($event)"/>
         </div>
         }
 

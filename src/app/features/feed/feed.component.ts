@@ -21,12 +21,14 @@ export class FeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.sub$ = this.postsService.getAllPosts().subscribe({
-      next: (res) => { 
-        console.log(res.data.posts)
-        this.postsList.set(res.data.posts) },
+      next: (res) => {
+        this.postsList.set(res.data.posts)
+      },
       error: (err: HttpErrorResponse) => console.log(err.error.message),
     });
   }
-
+  onPostDeleted(id: string): void {
+    this.postsList.update(list => list.filter(p => p._id !== id));
+  }
 
 }

@@ -31,5 +31,12 @@ export class PostsService {
         });
     }
 
+    DeletePost(postId: string): Observable<PostsResponse> {
+        return this.httpClient.delete<PostsResponse>(environment.base_url + `/posts/${postId}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('userToken')}`
+            },
+        });
+    }
 
 }

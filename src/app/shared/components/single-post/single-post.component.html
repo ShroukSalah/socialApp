@@ -16,6 +16,8 @@
                     </span>
                 </div>
             </div>
+            @if (postData.user._id === pofileId()) {
+
             <div class="relative" (click)="$event.stopPropagation()">
                 <button [id]="`dropdownDefaultButton` + postData._id"
                     [attr.data-dropdown-toggle]="`dropdown` + postData._id"
@@ -25,12 +27,15 @@
 
                 <div [id]="`dropdown` + postData._id" class="z-10 hidden bg-white rounded-2xl shadow-lg w-44 p-2">
                     <ul class="p-2 text-sm  font-medium" aria-labelledby="dropdownDefaultButton">
-                        <li class="font-bold text-red-500">
+
+                        <li class="font-bold text-red-500" (click)="deletePost()">
                             Delete
                         </li>
+
                     </ul>
                 </div>
             </div>
+            }
         </div>
 
         <p>
