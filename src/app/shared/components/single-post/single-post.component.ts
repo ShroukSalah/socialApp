@@ -21,7 +21,12 @@ export class SinglePostComponent implements OnInit {
   private readonly authService = inject(AuthService)
 
   pofileId = signal<string>('')
+  isLiked = signal<boolean>(false);
+  likesCount = signal<number>(0);
+
   ngOnInit(): void {
+    this.likesCount.set(this.postData.likesCount);
+
     this.authService.getProfile().subscribe({
       next: (res) => {
         this.pofileId.set(res.data.user._id)
@@ -39,5 +44,17 @@ export class SinglePostComponent implements OnInit {
     })
   }
 
+  likePost(): void {
+    const wasLiked = this.isLiked();
+    this.isLiked.set(!wasLiked);
+    this.likesCount.update(c => wasLiked ? c - 1 : c + 1);
 
+    this.postsService.likePost(this.postData._id).subscribe({
+      error: () => {
+        // رجّع القيم لو فشل
+        this.isLiked.set(wasLiked);
+        this.likesCount.update(c => wasLiked ? c + 1 : c - 1);
+      },
+    });
+  }
 }

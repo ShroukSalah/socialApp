@@ -38,5 +38,11 @@ export class PostsService {
             },
         });
     }
-
+    likePost(postId: string): Observable<any> {
+        return this.httpClient.put<any>(environment.base_url + `/posts/${postId}/like`,{}, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('userToken')}`
+            },
+        });
+    }
 }
