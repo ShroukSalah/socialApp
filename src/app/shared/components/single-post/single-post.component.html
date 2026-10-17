@@ -1,17 +1,38 @@
 <section class="bg-white p-[20px] rounded-[20px] shadow my-3 cursor-pointer">
+
+
+
     <div [routerLink]="['/PostDetails', postData._id]" class="mb-3 border-b pb-4 border-b-[#E6E3F2]">
-        <div class="flex gap-3 mb-4">
-            <img [src]="postData.user.photo" class="w-[44px] h-[44px] shadow rounded-full"
-                [alt]="postData.user.username">
-            <div>
-                <h5 class="font-semibold text-[20px]">
-                    {{postData.user.username}}
-                </h5>
-                <span class="text-[10px] text-[#999999] font-semibold">
-                    {{postData.createdAt}}
-                </span>
+        <div class="flex justify-between gap-3 mb-4 relative">
+            <div class="flex gap-3 mb-4">
+                <img [src]="postData.user.photo" class="w-[44px] h-[44px] shadow rounded-full"
+                    [alt]="postData.user.username">
+                <div>
+                    <h5 class="font-semibold text-[20px]">
+                        {{postData.user.username}}
+                    </h5>
+                    <span class="text-[10px] text-[#999999] font-semibold">
+                        {{postData.createdAt}}
+                    </span>
+                </div>
+            </div>
+            <div class="relative" (click)="$event.stopPropagation()">
+                <button [id]="`dropdownDefaultButton` + postData._id"
+                    [attr.data-dropdown-toggle]="`dropdown` + postData._id"
+                    class="cursor-pointer  focus:outline-none absolute end-[10px] z-50" type="button">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+
+                <div [id]="`dropdown` + postData._id" class="z-10 hidden bg-white rounded-2xl shadow-lg w-44 p-2">
+                    <ul class="p-2 text-sm  font-medium" aria-labelledby="dropdownDefaultButton">
+                        <li class="font-bold text-red-500">
+                            Delete
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
+
         <p>
             {{postData.body}}
         </p>
