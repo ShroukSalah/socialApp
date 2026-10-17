@@ -16,7 +16,7 @@ export class PostsService {
             }
         })
     }
-    getSinglePost(postId: string): Observable<any> {
+    getSinglePost(postId: string | null): Observable<any> {
         return this.httpClient.get<any>(environment.base_url + `/posts/${postId}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('userToken')}`

@@ -10,6 +10,7 @@ import { NotificationsComponent } from './features/notifications/notifications.c
 import { ChangePasswordComponent } from './features/change-password/change-password.component';
 import { authGuard } from './core/guards/auth-guard';
 import { guestGuard } from './core/guards/guest-guard';
+import { PostDetailsComponent } from './features/post-details/post-details.component';
 
 export const routes: Routes = [
     {
@@ -61,6 +62,12 @@ export const routes: Routes = [
             path: 'ChangePassword',
             component: ChangePasswordComponent,
             title: " Change Password page"
+        },
+        {
+
+            path: 'PostDetails/:id',
+            component: PostDetailsComponent,
+            title: " Post Details page"
         }
         ]
     },
