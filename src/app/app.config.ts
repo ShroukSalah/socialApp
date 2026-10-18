@@ -4,6 +4,8 @@ import { provideRouter, withHashLocation, withInMemoryScrolling, withViewTransit
 import { routes } from './app.routes';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { headersInterceptor } from './core/interceptors/headers/headers-interceptor';
+import { provideToastr } from 'ngx-toastr';
+import { errorsInterceptor } from './core/interceptors/errors/errors-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +17,7 @@ export const appConfig: ApplicationConfig = {
       }),
       withHashLocation()
     ),
-    provideHttpClient(withFetch(),withInterceptors([headersInterceptor]))
+    provideHttpClient(withFetch(),withInterceptors([headersInterceptor,errorsInterceptor])),
+    provideToastr()
   ]
 };
