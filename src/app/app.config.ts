@@ -2,7 +2,8 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter, withHashLocation, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { headersInterceptor } from './core/interceptors/headers/headers-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +15,6 @@ export const appConfig: ApplicationConfig = {
       }),
       withHashLocation()
     ),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch(),withInterceptors([headersInterceptor]))
   ]
 };

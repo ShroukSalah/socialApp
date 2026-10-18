@@ -51,8 +51,7 @@ export class SinglePostComponent implements OnInit {
 
     this.postsService.likePost(this.postData._id).subscribe({
       error: () => {
-        // رجّع القيم لو فشل
-        this.isLiked.set(wasLiked);
+         this.isLiked.set(wasLiked);
         this.likesCount.update(c => wasLiked ? c + 1 : c - 1);
       },
     });

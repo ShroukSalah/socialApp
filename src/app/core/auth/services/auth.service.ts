@@ -17,10 +17,6 @@ export class AuthService {
     }
 
     getProfile(): Observable<any> {
-        return this.httpClient.get<any>(environment.base_url + "/users/profile-data", {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('userToken')}`
-            }
-        })
+        return this.httpClient.get<any>(environment.base_url + "/users/profile-data" )
     }
 }
