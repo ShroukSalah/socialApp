@@ -6,6 +6,8 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { headersInterceptor } from './core/interceptors/headers/headers-interceptor';
 import { provideToastr } from 'ngx-toastr';
 import { errorsInterceptor } from './core/interceptors/errors/errors-interceptor';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { loadingInterceptor } from './core/interceptors/loading/loading-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,7 +19,8 @@ export const appConfig: ApplicationConfig = {
       }),
       withHashLocation()
     ),
-    provideHttpClient(withFetch(),withInterceptors([headersInterceptor,errorsInterceptor])),
-    provideToastr()
+    provideHttpClient(withFetch(),withInterceptors([headersInterceptor,errorsInterceptor,loadingInterceptor])),
+    provideToastr(),
+    provideAnimations()
   ]
 };
