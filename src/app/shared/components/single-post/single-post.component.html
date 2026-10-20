@@ -28,7 +28,7 @@
                 <div [id]="`dropdown` + postData._id" class="z-10 hidden bg-white rounded-2xl shadow-lg w-44 p-2">
                     <ul class="p-2 text-sm  font-medium" aria-labelledby="dropdownDefaultButton">
 
-                        <li class="font-bold text-red-500" (click)="deletePost()">
+                        <li class="font-bold text-red-500" (click)="deletePost(postData._id)">
                             Delete
                         </li>
 

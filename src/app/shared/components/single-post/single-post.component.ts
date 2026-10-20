@@ -27,17 +27,17 @@ export class SinglePostComponent implements OnInit {
   ngOnInit(): void {
     this.likesCount.set(this.postData.likesCount);
 
-    // this.authService.getProfile().subscribe({
-    //   next: (res) => {
-    //     this.pofileId.set(res.data.user._id)
-    //     setTimeout(() => initFlowbite(), 0);
-    //   }
-    // })
+    this.authService.getProfile().subscribe({
+      next: (res) => {
+        this.pofileId.set(res.data.user._id)
+        setTimeout(() => initFlowbite(), 0);
+      }
+    })
   }
 
 
-  deletePost(): void {
-    this.postsService.DeletePost(this.postData._id).subscribe({
+  deletePost(id:string): void {
+    this.postsService.DeletePost(id).subscribe({
       next: () => {
         this.postDeleted.emit(this.postData._id)
       }
