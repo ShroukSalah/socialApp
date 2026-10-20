@@ -1,7 +1,7 @@
-<section class="pt-[100px] min-h-dvh">
+<section class="pt-25 min-h-dvh">
 
     @if (postDetails(); as post) {
-    <div class="grid lg:grid-cols-2 grid-cols-1 lg:px-[150px] px-[20px] gap-10">
+    <div class="grid lg:grid-cols-2 grid-cols-1 lg:px-37.5 px-5 gap-10">
         <div>
             @if (post.image){
             <div class="bg-white rounded-2xl">
@@ -9,12 +9,12 @@
             </div>
             }
             @else{
-            <div class="bg-[#F9D6DF] rounded-2xl w-full lg:min-h-[80vh] min-h-[200px]"></div>
+            <div class="bg-[#F9D6DF] rounded-2xl w-full lg:min-h-[80vh] min-h-50"></div>
             }
         </div>
         <div class="bg-white rounded-2xl lg:p-10 p-5">
             <div class="flex gap-3 mb-4">
-                <img [src]="post.user.photo" class="w-[44px] h-[44px] shadow rounded-full" [alt]="post.user.username">
+                <img [src]="post.user.photo" class="w-11 h-11 shadow rounded-full" [alt]="post.user.username">
                 <div>
                     <h5 class="font-semibold text-[20px]">
                         {{post.user.username}}
@@ -28,7 +28,7 @@
                 {{post.body}}
             </p>
             <div class="mt-5">
-                <div class="flex gap-[25px] mb-4">
+                <div class="flex gap-6.25 mb-4">
                     <div class="flex items-center gap-2">
                         <i class="far fa-heart"></i>
                         <h6 class="lg:inline hidden">

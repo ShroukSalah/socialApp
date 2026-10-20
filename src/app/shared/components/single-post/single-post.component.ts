@@ -27,12 +27,12 @@ export class SinglePostComponent implements OnInit {
   ngOnInit(): void {
     this.likesCount.set(this.postData.likesCount);
 
-    this.authService.getProfile().subscribe({
-      next: (res) => {
-        this.pofileId.set(res.data.user._id)
-        setTimeout(() => initFlowbite(), 0);
-      }
-    })
+    // this.authService.getProfile().subscribe({
+    //   next: (res) => {
+    //     this.pofileId.set(res.data.user._id)
+    //     setTimeout(() => initFlowbite(), 0);
+    //   }
+    // })
   }
 
 
